@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/ContactList_Talkip.iml" filepath="$PROJECT_DIR$/.idea/ContactList_Talkip.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ProvaLPC/.idea/ProvaLPC.iml" filepath="$PROJECT_DIR$/../ProvaLPC/.idea/ProvaLPC.iml" />
+    </modules>
+  </component>
+</project>
