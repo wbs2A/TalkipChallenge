@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ContactList extends Model{
     use HasFactory;
-    protected $table = 'contacts_lists';
+    protected $table = 'contact_lists';
     protected $fillable = [
         'name'
     ];

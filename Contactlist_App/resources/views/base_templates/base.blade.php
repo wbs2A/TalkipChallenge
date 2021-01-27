@@ -53,6 +53,22 @@
 <ul class="sidenav" id="mobile-demo">
     <li><a href="sass.html">Gerenciar Listas</a></li>
     <li><a href="badges.html">Relatórios</a></li>
+    <li>@if (Route::has('login'))
+            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                @auth
+                    <a href="{{ url('/index') }}" class="text-sm text-gray-700 underline">Início</a><br>
+                    <a href="{{ url('/logout') }}" class="text-sm text-gray-700 underline">Sair</a>
+
+                @else
+                    <a href="{{ route('login') }}" class="text-sm gray">Login/</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="text-sm gray">Cadastro</a>
+                    @endif
+
+                @endauth
+            </div>
+        @endif</li>
 </ul>
 
 

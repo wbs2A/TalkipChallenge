@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Models\ContactList;
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ContactListController extends Controller
@@ -15,8 +17,12 @@ class ContactListController extends Controller
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index(){
-        $contacts_list = ContactList::all();
         $_return = [];
+        if(!Auth::check()){
+            return view('index', compact('_return'));
+        }
+
+        $contacts_list = DB::table('contacts_lists')->join('user_has_contact_list', 'contacts_lists.id', '=', 'user_has_contact_list.contact_list_id')->where('user_id', '=', Auth::user()->id)->get('*');
         foreach ($contacts_list as $contact_list){
             $relateds = DB::table('contacts')->join('contact_list_has_contact', 'contacts.id', '=', 'contact_list_has_contact.contact_id') ->where('contact_list_id', '=', $contact_list->id)->get(array('id','name','phone','cpf','status','created_at'));
             array_push($_return, array("list_id"=> $contact_list->id, "list_name" =>$contact_list->name, "contacts"=>$relateds));

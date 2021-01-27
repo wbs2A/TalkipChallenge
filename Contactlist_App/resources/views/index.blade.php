@@ -2,12 +2,13 @@
 
 @section('content')
     <div class="row">
-    @foreach ($_return as $_list)
+    @forelse($_return as $_list)
         <div class="col s12 m4">
 
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
-                <i class="activator fas fa-phone"></i>
+                <img class="activator center-align" src="/images/phone-auricular.png"
+                     style="height: 20vh; width: 20vw"/>
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">{{$_list["list_name"]}}<i class="material-icons right">more_vert</i></span>
@@ -22,15 +23,33 @@
                         </ul>
                         <br>
                     </div>
-
                 @endforeach
+
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">{{$_list["list_name"]}}<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                <p>Esta é sua lista "{{$_list["list_name"]}}"</p>
+                <div class="row">
+                    <div class="col">
+                        <a href="#" class="btn-floating btn-large waves-effect waves-light yellow"><i class="fas fa-edit"></i> </a>
+                    </div>
+                    <div class="col">
+                        <a href="#" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-trash"></i> </a>
+                    </div>
+                </div>
+
             </div>
         </div>
         </div>
-    @endforeach
+        @empty
+            @unless(Auth::check())
+                <div class="container-fluid">
+                    <h2> Você precisa fazer login para gerenciar suas listas</h2>
+                </div>
+            @else
+                <h2> Você Ainda não inseriu nenhuma lista </h2>
+            @endunless
+
+    @endforelse
     </div>
 @endsection
