@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ContactListController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [ContactListController::class,'index']);
+
+Route::prefix('api')->group( function(){
+    Route::post('/addcontact', function (){
+        #TODO
+    });
+    Route::post('/addcontacts', function (){
+        #TODO
+    });
+
 });
