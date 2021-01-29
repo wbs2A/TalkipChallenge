@@ -108,6 +108,11 @@
       <path value="$PROJECT_DIR$/Contactlist_App/vendor/facade/flare-client-php" />
       <path value="$PROJECT_DIR$/Contactlist_App/vendor/facade/ignition" />
       <path value="$PROJECT_DIR$/Contactlist_App/vendor/facade/ignition-contracts" />
+      <path value="$PROJECT_DIR$/Contactlist_App/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/Contactlist_App/vendor/league/iso3166" />
+      <path value="$PROJECT_DIR$/Contactlist_App/vendor/giggsey/locale" />
+      <path value="$PROJECT_DIR$/Contactlist_App/vendor/giggsey/libphonenumber-for-php" />
+      <path value="$PROJECT_DIR$/Contactlist_App/vendor/propaganistas/laravel-phone" />
     </include_path>
   </component>
   <component name="PhpUnit">
