@@ -33,10 +33,22 @@
                 <p>Esta é sua lista "{{$_list["list_name"]}}"</p>
                 <div class="row">
                     <div class="col">
-                        <a href="" class="btn-floating btn-large waves-effect waves-light yellow"><i class="fas fa-edit"></i> </a>
+                        Editar
+                        <a href="" class="btn-floating btn-large waves-effect waves-light yellow">
+                            <i class="fas fa-edit"></i>
+                        </a>
                     </div>
                     <div class="col">
-                        <a href="#" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-trash"></i> </a>
+                        Excluir
+                        <a href="#" class="btn-floating btn-large waves-effect waves-light red">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                    <div class="col">
+                        Relatório
+                        <a href="/reports/{{$_list["list_id"]}}" class="btn-floating btn-large waves-effect waves-light green">
+                            <i class="fas fa-newspaper"></i>
+                        </a>
                     </div>
                 </div>
 

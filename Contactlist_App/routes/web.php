@@ -17,13 +17,22 @@ use App\Http\Controllers\ContactController;
 |
 */
 
+Route::group(["middleware"=>['auth']], function(){
+
+    Route::get('/newlist',[ContactListController::class, 'create']);
+
+    Route::get('/insertcontacts', [ContactController::class, 'show_contact_insert_form'])->name('insertcontacts');
+
+    Route::get('/remove_contactlist', [ContactListController::class, 'destroy']);
+
+    Route::get('/reports/{id}', [ContactListController::class, 'showReports']);
+});
+
 Route::get('/', [ContactListController::class,'index']);
 
-Route::get('/newlist',[ContactListController::class, 'create'])->middleware('auth');
+Route::get('/logout', [LogoutController::class, 'logout']);
 
-Route::get('/insertcontacts', [ContactController::class, 'show_contact_insert_form'])->name('insertcontacts');
-
-Route::get('/remove_contactlist', [ContactListController::class, 'destroy']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 #TODO CSV
@@ -42,7 +51,3 @@ Route::prefix('api')->group( function(){
 });
 
 Auth::routes();
-
-Route::get('/logout', [LogoutController::class, 'logout']);
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
