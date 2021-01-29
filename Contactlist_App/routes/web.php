@@ -44,6 +44,8 @@ Route::prefix('api')->group( function(){
 
     Route::post('/addcontacts', [ContactController::class, 'store']);
 
+    Route::post('/removecontactlist', [ContactListController::class, 'perform_delete']);
+
     #TODO CSV
     #Route::post('/import_parse', 'ImportController@parseImport')->name('import_parse');
     #Route::post('/import_process', 'ImportController@processImport')->name('import_process');

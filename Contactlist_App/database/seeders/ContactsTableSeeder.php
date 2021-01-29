@@ -8,6 +8,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use Propaganistas\LaravelPhone\Rules\Phone;
 
 
 class ContactsTableSeeder extends Seeder
@@ -18,11 +19,18 @@ class ContactsTableSeeder extends Seeder
      * @return void
      */
     public function run(){
-        DB::table('contacts')->insert([
-            'name' => Str::random(10),
-        'phone' => Rule::phone()->country(['BR', 'BR']),
-            'cpf' => Str::random(11),
-            'Status' => Str::random(1)
-        ]);
+        $status = array("A", "B", "C");
+        for ($i = 1; $i <50; $i++) {
+            shuffle($status);
+            DB::table('contacts')->insert(
+                [
+                    'name' => Str::random(10),
+                    'phone' => Str::random(11),
+                    'cpf' => Str::random(11),
+                    'Status' => $status[0]
+                ]
+            );
+        }
+
     }
 }

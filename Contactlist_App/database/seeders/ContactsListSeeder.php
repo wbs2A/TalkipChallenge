@@ -13,10 +13,13 @@ class ContactsListSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        DB::table('contacts_list')->insert([
-            'name' => Str::random(10),
-        ]);
+    public function run(){
+        for ($i = 1; $i <10; $i++)
+            DB::table('contacts_list')->insert(
+            [
+                'name' => Str::random(10),
+                'created_at' => now()
+            ]
+        );
     }
 }

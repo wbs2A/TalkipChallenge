@@ -70,9 +70,9 @@
                         <label class="brown-text" for="c_status">Status</label>
                             <select id="c_status" name="c_status" class="form-select">
                                 <option value="" disabled selected>Escolha o status</option>
-                                <option value="0"> A </option>
-                                <option value="1"> B </option>
-                                <option value="2"> C </option>
+                                <option value="A"> A </option>
+                                <option value="B"> B </option>
+                                <option value="C"> C </option>
                             </select>
                         <br>
                     </p>
