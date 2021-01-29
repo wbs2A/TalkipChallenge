@@ -1,14 +1,16 @@
 @extends('base_templates/base')
 
 @section('content')
-    <div class="row">
-    @forelse($_return as $_list)
+    <div class="row" style="padding-top: 10px;">
+    @forelse($data as $_list)
         <div class="col s12 m4">
 
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator center-align" src="/images/phone-auricular.png"
-                     style="height: 20vh; width: 20vw"/>
+                <div class="container center">
+                    <img class="activator" src="/images/phone-auricular.png"
+                         style="height:20vh; width: 15vw"/>
+                </div>
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">{{$_list["list_name"]}}<i class="material-icons right">more_vert</i></span>
@@ -31,7 +33,7 @@
                 <p>Esta é sua lista "{{$_list["list_name"]}}"</p>
                 <div class="row">
                     <div class="col">
-                        <a href="#" class="btn-floating btn-large waves-effect waves-light yellow"><i class="fas fa-edit"></i> </a>
+                        <a href="" class="btn-floating btn-large waves-effect waves-light yellow"><i class="fas fa-edit"></i> </a>
                     </div>
                     <div class="col">
                         <a href="#" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-trash"></i> </a>
@@ -40,7 +42,9 @@
 
             </div>
         </div>
+
         </div>
+            {{ $data->links() }}
         @empty
             @unless(Auth::check())
                 <div class="container-fluid">

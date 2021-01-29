@@ -13,10 +13,21 @@ class UserHasContactList extends Migration
      */
     public function up(){
         Schema::create('user_has_contact_list', function (Blueprint $table){
-            $table->integer('user_id')->unsigned();
-            $table->integer('contact_list_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('contact_list_id')->references('id')->on('contacts_list')->onDelete('cascade');
+            $table->integer('user_id')
+                ->unsigned();
+
+            $table->integer('contact_list_id')
+                ->unsigned();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+
+            $table->foreign('contact_list_id')
+                ->references('id')
+                ->on('contacts_list')
+                ->onDelete('cascade');
         });
     }
 

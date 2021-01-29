@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class ContactList extends Model{
     use HasFactory;
-    protected $table = 'contact_lists';
+    protected $table = 'contacts_lists';
+
     protected $fillable = [
-        'name'
+        'name', 'created_at'
     ];
+
     public function contacts(){
         return $this->hasMany(Contact::class);
 
